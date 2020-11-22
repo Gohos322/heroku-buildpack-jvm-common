@@ -22,10 +22,13 @@ calculate_java_memory_opts() {
 
 if [[ -d $HOME/.jdk ]]; then
   export JAVA_HOME="$HOME/.jdk"
+  export JDK_HOME="$HOME/.jdk"
   export PATH="$HOME/.heroku/bin:$JAVA_HOME/bin:$PATH"
 else
   JAVA_HOME="$(realpath "$(dirname "$(command -v java)")/..")"
   export JAVA_HOME
+  JDK_HOME="$(realpath "$(dirname "$(command -v java)")/..")"
+  export JDK_HOME
 fi
 
 if [[ -d "$JAVA_HOME/jre/lib/amd64/server" ]]; then
